@@ -37,7 +37,7 @@
             <div class="section mt-1 mb-5">
                 <div class="section mt-1">
                     <h1>Get started</h1>
-                    <h4>Fill the form to log in jjskskjkjsksjksjksjkjksj</h4>
+                    <h4>Fill the form to log in</h4>
                 </div>
                 <form action="{{asset('app-pages.html')}}">
                     <div class="form-group boxed">
