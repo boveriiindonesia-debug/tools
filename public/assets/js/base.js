@@ -526,3 +526,29 @@ dmswitch.on('change', function () {
 });
 ///////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////
+// Show / Hide Password
+$(document).ready(function () {
+
+    $("#togglePassword").click(function () {
+
+        var password = $("#password1");
+
+        if (password.attr("type") === "password") {
+            password.attr("type", "text");
+
+            $(this)
+                .removeClass("bi-eye-slash")
+                .addClass("bi-eye");
+        } else {
+            password.attr("type", "password");
+
+            $(this)
+                .removeClass("bi-eye")
+                .addClass("bi-eye-slash");
+        }
+
+    });
+
+});
+///////////////////////////////////////////////////////////////////////////
