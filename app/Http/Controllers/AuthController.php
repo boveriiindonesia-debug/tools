@@ -14,7 +14,8 @@ class AuthController extends Controller
             'password' => $request->password
         ];
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('karyawan')->attempt($credentials)) {
+
             $request->session()->regenerate();
 
             return redirect('/dashboard');
