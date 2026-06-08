@@ -39,7 +39,8 @@
                     <h1>Get started</h1>
                     <h4>Fill the form to log in</h4>
                 </div>
-                <form action="{{asset('app-pages.html')}}">
+                <form action="{{ route('login.proses') }}" method="POST">
+                    @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
 
@@ -47,7 +48,7 @@
 
                             <input type="email"
                                 class="form-control custom-input"
-                                id="email1"
+                                id="email" name="email"
                                 placeholder="Email address">
 
                         </div>
@@ -60,7 +61,7 @@
 
                             <input type="password"
                                 class="form-control custom-input"
-                                id="password1"
+                                id="password" name="password"
                                 placeholder="Password">
 
                             <i class="bi bi-eye-slash password-toggle"
