@@ -39,6 +39,11 @@
                     <h1>Get started</h1>
                     <h4>Fill the form to log in</h4>
                 </div>
+                @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
                 <form action="{{ route('login.proses') }}" method="POST">
                     @csrf
                     <div class="form-group boxed">
@@ -46,10 +51,12 @@
 
                             <i class="bi bi-envelope input-icon"></i>
 
-                            <input type="email"
+                            <input type="text"
                                 class="form-control custom-input"
-                                id="email" name="email"
-                                placeholder="Email address">
+                                id="login"
+                                name="login"
+                                placeholder="Username atau Email"
+                                required>
 
                         </div>
                     </div>
@@ -71,7 +78,10 @@
                     </div>
 
                     <div class="form-links mt-2">
-                        <a href="page-forgot-password.html" class="text-muted">Forgot Password?</a>
+                        <a href="{{ route('forgot.password') }}"
+                            class="text-muted">
+                            Forgot Password?
+                        </a>
                     </div>
 
                     <div class="form-button-group">
@@ -101,7 +111,31 @@
     <script src="{{asset('assets/js/plugins/jquery-circle-progress/circle-progress.min.js')}}"></script>
     <!-- Base Js File -->
     <script src="{{asset('assets/js/base.js')}}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
 
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const password =
+        document.getElementById("password");
+
+    togglePassword.addEventListener("click", function() {
+
+        const type =
+            password.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+
+        password.setAttribute("type", type);
+
+        this.classList.toggle("bi-eye");
+        this.classList.toggle("bi-eye-slash");
+
+    });
+
+});
+</script>
 </body>
 
 </html>
